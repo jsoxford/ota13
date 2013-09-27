@@ -88,7 +88,7 @@ function draw(){
 	var maxdiff = max([max(longs) - min(longs),max(lats) - min(lats)])
 
 	var longscale = d3.scale.linear().domain([min(longs), min(longs) + maxdiff]).range([10, width-10]);
-	var latscale  = d3.scale.linear().domain([min(lats), min(lats) + maxdiff]).range([10, height-10]);
+	var latscale  = d3.scale.linear().domain([min(lats), min(lats) + maxdiff]).range([height-10, 10]);
 
 	svg.selectAll('circle')
 		.data(data)
@@ -104,6 +104,8 @@ function draw(){
 		.transition()
 		.attr('cx', function(d,i){return longscale(d.coords.longitude)})
 		.attr('cy', function(d,i){return latscale(d.coords.latitude)})
+		.style('opacity', function(d,i){return (100-d.coords.accuracy)/100})
+		.style('fill', function(d,i){return d.id == 'pete' ? 'red' : (d.id == 'Joey' ? 'blue' : (d.id == 'ben' ? 'green' : 'black'))})
 		
 
 }
