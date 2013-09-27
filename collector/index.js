@@ -6,19 +6,21 @@ var pubnub = PUBNUB.init({
 	// uuid          : id
 });
 
-var watchID;
+var watchID, fallback_id = ('' + Math.random());
 
 bean.on(start_button, 'click', function(){
 	if(watchID){
 		navigator.geolocation.clearWatch(watchID);
 	} else {
 		watchID = navigator.geolocation.watchPosition(function(position) {
-			position.id = document.getElementById('identifier').value || ('' + Math.random());
+			position.id = document.getElementById('identifier').value || fallback_id;
 			pubnub.publish({
 				channel : "positions",
 				message : position
 			});
 			counter.innerText = parseInt(counter.innerText) + 1;
+
+			accuracy.innerText = position.coords.accuracy;
 		});
 
 		if (document.documentElement.requestFullscreen) {
@@ -67,7 +69,7 @@ bean.on(view_button, 'click', function(){
 // });
 
 
-var width = 400, height = 300;
+var width = 500, height = 500;
 var svg = d3.select('#positions').append('svg').attr('width', width).attr('height', height);
 
 function min(arr){
