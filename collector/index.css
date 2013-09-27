@@ -8,3 +8,7 @@ body{
   zoom:150%;
 }
 
+
+svg{
+	border:1px solid #08f;
+}
