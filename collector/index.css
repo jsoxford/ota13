@@ -5,7 +5,9 @@ body{
   font-family: Futura, Helvetica, sans-serif;
   text-align: center;
   color:#777;
-  zoom:150%;
+}
+button{
+	zoom:1.5;
 }
 
 
