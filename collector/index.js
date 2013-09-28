@@ -24,7 +24,7 @@ bean.on(start_button, 'click', function(){
 		}, function(){
 			alert("geolocation error")
 		},{
-			enableHighAccuracy: true
+			enableHighAccuracy: true,
 			maximumAge        : 10000, // these
 			timeout           : 27000 // could be tweaked
 		});
