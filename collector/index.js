@@ -49,7 +49,7 @@ bean.on(view_button, 'click', function(){
 		channel : "positions",
 		callback : function(message){
 			// prepend to the list
-			positions_el.innerText = JSON.stringify(message) + "\n" + positions_el.innerText;
+			// positions_el.innerText = JSON.stringify(message) + "\n" + positions_el.innerText;
 
 			data.push(message);
 
