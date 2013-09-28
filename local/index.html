@@ -7,8 +7,20 @@
 	<meta name="viewport" content="width=500">
 </head>
 <body>
-	<p>points: <span id="counter">0</span>, accuracy: <span id="accuracy">0</span></p>
+	<ul class="info">
+		<li>Points: <span id="counter">0</span></li> 
+		<li><img src="assets/signal.png" /> <span id="accuracy">0</span><li>
+		<li class="restart"><a href=""><img src="assets/undo2.png" /> Start again</a></li>
+	</ul>
 	<div id="positions"></div>
+
+	<ul class="unstyled">
+		<li><a href="#"><img src="assets/pencil.png" /></a></li>
+		<li><a href="#"><img src="assets/droplet.png" /></a></li>
+		<li><a href="#" class="go"><img src="assets/go.png" /></a></li>
+		<li><a href="#"><img src="assets/undo.png" /></a></li>
+		<li><a href="#"><img src="assets/cloud-download.png" /></a></li>
+	</ul>
 
 	<!-- build:js app.min.js -->
 	<script type="text/javascript" src="dump1.js"></script>

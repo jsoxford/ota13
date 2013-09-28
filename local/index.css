@@ -1,16 +1,80 @@
-html,body { height: 100%; margin: 0; padding: 0 ;}
-
-
-body{
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0 ;
+}
+body {
   font-family: Futura, Helvetica, sans-serif;
   text-align: center;
-  color:#777;
+  color: #ffffff;
+  background-color: #136493;
 }
-button{
-	zoom:1.5;
+a {
+  color: #fff;
+  text-decoration: none;
 }
-
-
-svg{
-	border:1px solid #08f;
+button {
+  zoom: 1.5;
+}
+svg {
+  background-color: #fff;
+  color: #333;
+}
+.info {
+  list-style: none;
+  text-align: center;
+}
+.info li {
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+.info li #accuracy,
+.info li #counter {
+  color: #fff;
+}
+.info .restart a img {
+  position: relative;
+  top: 2px;
+}
+ul.unstyled {
+  list-style: none;
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  background-color: #3f98cb;
+}
+ul.unstyled li {
+  margin: 0;
+  padding: 0;
+}
+ul.unstyled li a {
+  background-color: #3f98cb;
+  display: block;
+  float: left;
+  width: 20%;
+  margin: 0;
+  padding: 0;
+}
+ul.unstyled li a :hover {
+  background-color: #136493;
+}
+ul.unstyled li a img {
+  width: 60%;
+  padding: 10px 10px;
+}
+ul.unstyled li .go {
+  background-color: transparent;
+}
+ul.unstyled li .go :hover {
+  background-color: transparent;
+}
+ul.unstyled li .go img {
+  position: relative;
+  top: -20px;
+  width: 100%;
+  left: -10px;
 }
