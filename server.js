@@ -48,14 +48,17 @@ app.post('/', function(req, res){
 
 });
 
-app.get('/', function(req,res){
-	res.send('<form method=post><input type="submit" value="go"><input type="text" name="content" value="Hello World">')
-})
+// app.get('/', function(req,res){
+// 	res.send('<form method=post><input type="submit" value="go"><input type="text" name="content" value="Hello World">')
+// })
 
-app.get('/:id', function(req,res){
+// app.get('/:id', function(req,res){
 
-	res.send("--- " + req.param('id'));
-})
+//   res.send("--- " + req.param('id'));
+// })
+
+app.use(express.static(__dirname + '/local'));
+
 
 var port = process.env.PORT || 3000;
 app.listen(port);
