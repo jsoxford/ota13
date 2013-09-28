@@ -34,8 +34,7 @@ app.post('/', function(req, res){
 	  if (200 == s3res.statusCode) {
 	    console.log('saved to %s', s3req.url);
 
-	    res.send('http://' + req.get('host') + '/' + fname);
-	    // res.send(req.host + '/' + fname);
+	    res.send('http://' + req.get('host') + '/' + fname + '.html');
 
 	  } else {
 	  	console.log(s3res.statusCode)
@@ -48,14 +47,10 @@ app.post('/', function(req, res){
 
 });
 
-// app.get('/', function(req,res){
-// 	res.send('<form method=post><input type="submit" value="go"><input type="text" name="content" value="Hello World">')
-// })
 
-// app.get('/:id', function(req,res){
-
-//   res.send("--- " + req.param('id'));
-// })
+app.get('/:id.html', function(req,res){
+  res.send("not yet implemented - though your picture has totally been saved (we promise)")
+})
 
 app.use(express.static(__dirname + '/local'));
 
