@@ -152,6 +152,26 @@ draw();
 // 	}
 // }, 10)
 
+bean.on(document.getElementById('upload_link'), 'click', function(){
+	reqwest({
+	    url: '/'
+	  , method: 'post'
+	  , type: 'html'
+	  , data: { content: data.map(function(d){return JSON.stringify(d)}).join('\n') }
+	  , success: function (resp) {
+	      var a = document.createElement('a');
+	      		a.href = resp;
+	      		a.innerText = "UPLOADED: " + resp;
+
+	      var p = document.createElement('p');
+	      		p.appendChild(a);
+
+	      document.body.insertBefore(p,document.body.childNodes[0]);
+	    }
+	})	
+});
+
+
 
 // hacky random deterministic colours
 function setColour(uuid){
