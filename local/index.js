@@ -101,8 +101,8 @@ function draw(){
 
 	// alternate (fixed ratio)
 	var maxdiff = max([max(longs) - min(longs),max(lats) - min(lats)])
-	var longscale = d3.scale.linear().domain([min(longs), min(longs) + maxdiff]).range([0, width]);
-	var latscale  = d3.scale.linear().domain([min(lats),  min(lats) + maxdiff]) .range([0, height]);
+	var longscale = d3.scale.linear().domain([min(longs), min(longs) + maxdiff]).range([10, width - 10]);
+	var latscale  = d3.scale.linear().domain([min(lats),  min(lats) + maxdiff]) .range([10, height - 10]);
 
 	// accuracy 0.4 -> 1, for opacity
 	var accuracyscale  = d3.scale.linear().domain([min(accuracies),  max(accuracies)]) .range([0.4, 1]);
@@ -123,9 +123,9 @@ function draw(){
 	// 	// .style('fill', function(d,i){return setColour(d.id)})
 
 	var line = d3.svg.line()
-	    .interpolate("linear")
+	    .interpolate("basis")
 	    .x(function(d) { return longscale(d.coords.longitude); })
-	    .y(function(d) { return latscale(d.coords.latitude); });
+	    .y(function(d) { return 1.4 * latscale(d.coords.latitude); });
 
 	svg.selectAll(".line").remove()
 	svg.selectAll("line")
@@ -134,7 +134,8 @@ function draw(){
 	    .attr("class", "line")
 	    .attr("d", line)
 	    .style('fill', 'none')
-	    .style('stroke', 'blue');
+	    .style('stroke', '#3f98cb')
+	    .style('stroke-width', 3)
 }
 
 draw();
