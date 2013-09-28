@@ -8,15 +8,15 @@ var watchID = navigator.geolocation.watchPosition(function(position) {
 	draw();
 }, function() {}, {enableHighAccuracy: true, maximumAge: 30000, timeout: 27000})
 
-bean.one(document.documentElement, 'touchstart', function(){
-		if (document.documentElement.requestFullscreen) {
-			document.documentElement.requestFullscreen();
-		} else if (document.documentElement.mozRequestFullScreen) {
-			document.documentElement.mozRequestFullScreen();
-		} else if (document.documentElement.webkitRequestFullscreen) {
-			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-		}
-})
+// bean.one(document.documentElement, 'touchstart', function(){
+// 		if (document.documentElement.requestFullscreen) {
+// 			document.documentElement.requestFullscreen();
+// 		} else if (document.documentElement.mozRequestFullScreen) {
+// 			document.documentElement.mozRequestFullScreen();
+// 		} else if (document.documentElement.webkitRequestFullscreen) {
+// 			document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+// 		}
+// })
 
 // bean.on(start_button, 'click', function(){
 // 	if(watchID){
