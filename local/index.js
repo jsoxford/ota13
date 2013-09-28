@@ -5,6 +5,7 @@ var watchID = navigator.geolocation.watchPosition(function(position) {
 	accuracy.innerText = position.coords.accuracy;
 	// todo - add to map
 	data.push(position)
+	draw();
 })
 
 bean.one(document.documentElement, 'touchstart', function(){
