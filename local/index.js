@@ -125,7 +125,7 @@ function draw(){
 	var line = d3.svg.line()
 	    .interpolate("basis")
 	    .x(function(d) { return longscale(d.coords.longitude); })
-	    .y(function(d) { return 0.8 * latscale(d.coords.latitude); });
+	    .y(function(d) { return latscale(d.coords.latitude); });
 
 	svg.selectAll(".line").remove()
 	svg.selectAll("line")
