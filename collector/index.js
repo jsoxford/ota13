@@ -21,13 +21,15 @@ bean.on(start_button, 'click', function(){
 			counter.innerText = parseInt(counter.innerText) + 1;
 
 			accuracy.innerText = position.coords.accuracy;
-		}, function(){
+		}
+		/*, function(){
 			alert("geolocation error")
 		},{
 			enableHighAccuracy: true,
 			maximumAge        : 10000, // these
 			timeout           : 27000 // could be tweaked
-		});
+		}*/
+		);
 
 		if (document.documentElement.requestFullscreen) {
 			document.documentElement.requestFullscreen();
