@@ -6,7 +6,7 @@ var watchID = navigator.geolocation.watchPosition(function(position) {
 	// todo - add to map
 	data.push(position)
 	draw();
-})
+}, function() {}, {enableHighAccuracy: true, maximumAge: 30000, timeout: 27000})
 
 bean.one(document.documentElement, 'touchstart', function(){
 		if (document.documentElement.requestFullscreen) {
@@ -107,22 +107,34 @@ function draw(){
 	// accuracy 0.4 -> 1, for opacity
 	var accuracyscale  = d3.scale.linear().domain([min(accuracies),  max(accuracies)]) .range([0.4, 1]);
 
-	svg.selectAll('circle')
-		.data(data)
-		.enter()
-		.append('circle')
-		.attr('r', 3)
-		.style('fill', function(d,i){return setColour(d.id)})
-	
-	// also update for new ranges
-	svg.selectAll('circle')
-		.data(data)
-		.attr('cx', function(d,i){return longscale(d.coords.longitude)})
-		.attr('cy', function(d,i){return latscale( d.coords.latitude )})
-		.style('opacity', function(d,i){return accuracyscale(d.coords.accuracy)})
-		// .style('fill', function(d,i){return setColour(d.id)})
-		
+	// svg.selectAll('circle')
+	// 	.data(data)
+	// 	.enter()
+	// 	.append('circle')
+	// 	.attr('r', 3)
+	// 	.style('fill', function(d,i){return setColour(d.id)})
 
+	// // also update for new ranges
+	// svg.selectAll('circle')
+	// 	.data(data)
+	// 	.attr('cx', function(d,i){return longscale(d.coords.longitude)})
+	// 	.attr('cy', function(d,i){return latscale(d.coords.latitude)})
+	// 	.style('opacity', function(d,i){return accuracyscale(d.coords.accuracy)})
+	// 	// .style('fill', function(d,i){return setColour(d.id)})
+
+	var line = d3.svg.line()
+	    .interpolate("linear")
+	    .x(function(d) { return longscale(d.coords.longitude); })
+	    .y(function(d) { return latscale(d.coords.latitude); });
+
+	svg.selectAll(".line").remove()
+	svg.selectAll("line")
+	    .data([data])
+	  .enter().append("path")
+	    .attr("class", "line")
+	    .attr("d", line)
+	    .style('fill', 'none')
+	    .style('stroke', 'blue');
 }
 
 draw();
